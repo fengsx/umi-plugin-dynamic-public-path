@@ -1,14 +1,14 @@
 // ref:
 // - https://umijs.org/plugins/api
 import { IApi } from '@umijs/types';
-import DynamicPublicPathPlugin from './dynamicPlugin';
+import path from 'path';
 
 export default function(api: IApi) {
   api.describe({
     key: 'dynamicPublicPath',
     config: {
       default: {
-        polyfill: true,
+        polyfill: false,
       },
       schema(joi) {
         return joi.object({
@@ -18,13 +18,20 @@ export default function(api: IApi) {
     },
     enableBy: api.EnableBy.config,
   });
-  api.chainWebpack(config => {
-    config.plugin('DynamicPublicPathPlugin').use(DynamicPublicPathPlugin, [
+
+  api.chainWebpack((config, { webpack }) => {
+    config.plugin('need-current-script-polyfill').use(webpack.DefinePlugin, [
       {
-        polyfill: api.config.dynamicPublicPath?.polyfill,
+        'process.env.NEED_CURRENTSCRIPT_POLYFILL':
+          api.config.dynamicPublicPath?.polyfill,
       },
     ]);
-
     return config;
   });
+
+  api.addEntryImportsAhead(() => [
+    {
+      source: path.resolve(__dirname, './setPublicPath.js'),
+    },
+  ]);
 }

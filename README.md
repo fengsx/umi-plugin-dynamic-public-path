@@ -36,7 +36,7 @@ export default {
 
 https://github.com/webpack/webpack/issues/7077
 
-https://github.com/vuejs/vue-cli/blob/dev/packages/%40vue/cli-service/lib/commands/build/setPublicPath.js#L5
+https://github.com/vuejs/vue-cli/blob/dev/packages/%40vue/cli-service/lib/commands/build/setPublicPath.js
 
 ## LICENSE
 
