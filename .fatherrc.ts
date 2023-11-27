@@ -1,14 +1,12 @@
-export default [
-  {
-    target: 'node',
-    cjs: { type: 'babel', lazy: true },
-    disableTypeCheck: true,
-    extraBabelPlugins: [
-      [
-        'babel-plugin-import',
-        { libraryName: 'antd', libraryDirectory: 'es', style: true },
-        'antd',
-      ],
-    ],
+import { defineConfig } from 'father';
+import path from 'path';
+
+export default defineConfig({
+  alias: {
+    '@': path.resolve(__dirname, './src'),
   },
-];
+  platform: 'node',
+  cjs: {
+    output: 'lib',
+  },
+});

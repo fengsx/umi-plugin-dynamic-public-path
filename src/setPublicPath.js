@@ -7,7 +7,6 @@ if (typeof window !== 'undefined') {
   if (!!process.env.NEED_CURRENTSCRIPT_POLYFILL) {
     var getCurrentScript = require('@soda/get-current-script');
     currentScript = getCurrentScript();
-
     // for backward compatibility, because previously we directly included the polyfill
     if (!('currentScript' in document)) {
       Object.defineProperty(document, 'currentScript', {
@@ -16,7 +15,8 @@ if (typeof window !== 'undefined') {
     }
   }
 
-  var src = currentScript && currentScript.src.match(/(.+\/)[^/]+\.js(\?.*)?$/);
+  var src = currentScript?.src?.match(/(.+\/)[^/]+\.js(\?.*)?$/);
+
   if (src) {
     __webpack_public_path__ = src[1]; // eslint-disable-line
   }

@@ -1,15 +1,12 @@
 // ref:
 // - https://umijs.org/plugins/api
-import { IApi } from '@umijs/types';
+import { IApi } from 'umi';
 import path from 'path';
 
-export default function(api: IApi) {
+export default function (api: IApi) {
   api.describe({
     key: 'dynamicPublicPath',
     config: {
-      default: {
-        polyfill: false,
-      },
       schema(joi) {
         return joi.object({
           polyfill: joi.boolean(),

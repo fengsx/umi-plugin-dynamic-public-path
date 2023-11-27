@@ -1,7 +1,6 @@
 export default {
   plugins: [require.resolve('../../../lib/')],
   dynamicPublicPath: {},
-  dynamicImport: {},
   chainWebpack(config, { webpack })  {
     config.plugin('plugin_name').use(webpack.DefinePlugin, [
       {
