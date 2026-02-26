@@ -1,12 +1,12 @@
-import { defineConfig } from 'father';
 import path from 'path';
+import { defineConfig } from 'father';
 
 export default defineConfig({
   alias: {
     '@': path.resolve(__dirname, './src'),
   },
-  platform: 'node',
+  platform: 'browser',
   cjs: {
     output: 'lib',
-  },
+  }
 });

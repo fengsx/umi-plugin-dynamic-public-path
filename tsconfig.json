@@ -11,8 +11,11 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "skipLibCheck": true,
-    "declaration": false
+    "declaration": true
   },
+  "include": [
+    "src/index.ts"
+  ],
   "exclude": [
     "node_modules",
     "dist",
