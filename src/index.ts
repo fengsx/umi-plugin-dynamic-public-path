@@ -66,11 +66,10 @@ export default function (api: IApi) {
         );
       },
     });
-  } else {
-    api.addEntryImportsAhead(() => [
-      {
-        source: path.resolve(__dirname, './setPublicPath.js'),
-      },
-    ]);
   }
+  api.addEntryImportsAhead(() => [
+    {
+      source: path.resolve(__dirname, './setPublicPath.js'),
+    },
+  ]);
 }
